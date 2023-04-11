@@ -1,1 +1,4 @@
-<app-nova-transferencia></app-nova-transferencia>
+<app-nova-transferencia (onNewTransfer)="transfer($event)"></app-nova-transferencia>
+
+<app-extrato [dadosTranferencia]="dadosTranferencia"></app-extrato>
+
