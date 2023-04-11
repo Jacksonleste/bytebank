@@ -19,12 +19,12 @@ export class NovaTransferenciaComponent implements OnInit {
   novaTransferencia() {
     console.log('Nova solicitação!');
 
-    const dadosTranferencia = {
+    const transferencias = {
       valor: this.valor,
       destino: this.destino,
     };
 
-    this.onNewTransfer.emit(dadosTranferencia);
+    this.onNewTransfer.emit(transferencias);
     this.limpaForm();
   }
 
