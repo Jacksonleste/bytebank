@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { TransferenciaService } from '../services/transferencia.service';
+import { error } from 'console';
 
 @Component({
   selector: 'app-nova-transferencia',
@@ -18,13 +19,18 @@ export class NovaTransferenciaComponent implements OnInit {
   novaTransferencia() {
     console.log('Nova solicitação!');
 
-    const transferencias = {
+    const transferencia = {
       valor: this.valor,
       destino: this.destino,
     };
 
-    this.transferenciaService.adicionar(transferencias);
-    this.limpaForm();
+    this.transferenciaService.adicionar(transferencia).subscribe(
+      (data) => {
+        console.table(data);
+        this.limpaForm();
+      },
+      (error) => console.error(error)
+    );
   }
 
   limpaForm() {
